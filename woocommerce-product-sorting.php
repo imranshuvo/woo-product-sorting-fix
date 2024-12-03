@@ -11,9 +11,9 @@ if (!defined('ABSPATH'))
 	exit; // Exit if accessed directly
 
 remove_action('wp_ajax_woocommerce_product_ordering', [WC_AJAX::class, 'product_ordering']);
-add_action('wp_ajax_woocommerce_product_ordering', 'product_ordering');
+add_action('wp_ajax_woocommerce_product_ordering', 'wk_product_ordering');
 
-function product_ordering() {
+function wk_product_ordering() {
 	global $wpdb;
 
 	if ( ! current_user_can( 'edit_products' ) || empty( $_POST['id'] ) ) {
